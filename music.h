@@ -4,7 +4,7 @@
 #include <string.h>
 #include "media.h"
 
-using namespace.std;
+using namespace std;
 
 class music {
 	public:
