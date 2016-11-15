@@ -9,14 +9,14 @@ using namespace std;
 class movies{
 	public:
 		movies();
-		movies(char*, char*, int*, float*, float*);
+		movies(char*, char*, int, int, int);
 		char* gettitle();
 		char* getdirector();
-		int* getyear();
-		float* getduration();
-		float* getrating();
+		int getyear();
+		int getduration();
+		int getrating();
 	private:
 		char* getdirector();
-		float* getduration();
-		float* getrating();
+		int getduration();
+		int getrating();
 };

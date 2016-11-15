@@ -6,7 +6,7 @@
 
 using namespace std;
 
-music::music(char* newtitle, char* newartist, int* newyear, float* newduration, char* newpublisher) {
+music::music(char* newtitle, char* newartist, int newyear, int newduration, char* newpublisher) {
 	title = newtitle;
 	artist = newartist;
 	year = newyear;

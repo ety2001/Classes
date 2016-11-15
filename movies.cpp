@@ -6,7 +6,7 @@
 
 using namespace std;
 
-movies::movies(char* newtitle, char* newdirector, int* newyear, float* newduration, float* newrating) {
+movies::movies(char* newtitle, char* newdirector, int newyear, int newduration, int newrating) {
 	title = newtitle;
 	director = newdirector;
 	year = newyear;

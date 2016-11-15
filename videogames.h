@@ -9,13 +9,13 @@ using namespace std;
 class videogames {
 	public:
 		videogames();
-		videogames(char*, int*, char*, float*);
+		videogames(char*, int, char*, int);
 		char* gettitle();
-		int* getyear();
+		int getyear();
 		char* getpublisher();
-		float* getrating();
+		int getrating();
 	private:
 		char* publisher;
-		float* rating;
+		int rating;
 
 };

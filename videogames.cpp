@@ -6,7 +6,7 @@
 
 using namespace std;
 
-videogames::videogames(char* newtitle, int* newyear, char* newpublisher, float* newrating) {
+videogames::videogames(char* newtitle, int newyear, char* newpublisher, int newrating) {
 	title = newtitle;
 	year = newyear;
 	publisher = newpublisher;
