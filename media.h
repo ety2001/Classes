@@ -1,15 +1,18 @@
-// main.cpp
+//media.h
 
-#include <iostream>
-#include <vector>
-#include "movies.h"
-#include "music.h"
-#include "videogames.h"
+#ifndef MEDIA_H
+#define MEDIA_H
 
-using namespace std;
+//media class includes game, music, movie
+class media {    
+	int type;           //type of the media: 1 - game, 2 - music, 3 - movie
+        int year;           //year media is published
+        char* title;        //title of media
+    public:
+	media(int mediaType, int mediaYear, char* mediaTitle);
+        int getType();      //gets type of media 
+        int getYear();      //gets year published
+        char* getTitle();   //gets title of media
+};
 
-int main ()
-{
-	vector<media*> *storage = new vector;
-	
-}
+#endif

@@ -1,35 +1,21 @@
-// music.cpp
+//music.cpp
 
-#include <iostream>
-#include <string.h>
 #include "music.h"
 
-using namespace std;
+music::music(int musicYear, char* musicTitle, char* musicArtist, int musicDuration, char* musicPublisher) : media(2, musicYear, musicTitle) {
+    artist = musicArtist;
+    duration = musicDuration;
+    publisher = musicPublisher;
+};
 
-music::music(char* newtitle, char* newartist, int newyear, int newduration, char* newpublisher) {
-	title = newtitle;
-	artist = newartist;
-	year = newyear;
-	duration = newduration;
-	publisher = newpublisher;
-}
+char* music::getArtist() {
+    return artist;
+};
 
-char music::gettitle() {
-	return title;
-}
+int music::getDuration() {
+    return duration;
+};
 
-char music::getartist() {
-	return artist;
-}
-
-int music::getyear() {
-	return year;
-}
-
-float music::getduration() {
-	return duration;
-}
-
-char music::getpublisher() {
-	return publisher;
-}
+char* music::getPublisher() {
+    return publisher;
+};
