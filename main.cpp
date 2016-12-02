@@ -34,8 +34,15 @@ int main () {
 			if(strcmp(input, "game") == 0) {
 				mainTitle = new char[100];
 				mainPublisher = new char[100];
-				cout << "Enter year, title, publisher, and rating separated by spaces" << endl;
-				cin >> mainYear >> mainTitle >> mainPublisher >> mainRating;
+				cout << "Enter year" << endl; 
+				cin >> mainYear;
+				cout << "Enter title" << endl;
+				cin.ignore();
+				cin.getline(mainTitle, 100);
+				cout << "Enter publisher" << endl;
+				cin >> mainPublisher; 
+				cout << "Enter rating" << endl;
+				cin >> mainRating;
 				game* agame = new game(mainYear, mainTitle, mainPublisher, mainRating);
 				storage.push_back (agame);
 			}
@@ -43,74 +50,94 @@ int main () {
 				mainTitle = new char[100];
 				mainArtist = new char[100];
 				mainPublisher = new char[100];
-				cout << "Enter year, title, artist, duration, and publisher separated by spaces" << endl;
-				cin >> mainYear >> mainTitle >> mainArtist >> mainDuration >>  mainPublisher;
+				cout << "Enter year" << endl;
+				cin >> mainYear;
+				cout << "Enter title" << endl;
+				cin.ignore();
+				cin.getline(mainTitle, 100);
+			       	cout << "Enter artist" << endl;
+				cin >> mainArtist;
+				cout << "Enter duration" << endl;
+				cin >> mainDuration;
+				cout << "Enter publisher" << endl;
+				cin >> mainPublisher;
 				music* amusic = new music(mainYear, mainTitle, mainArtist, mainDuration, mainPublisher);
 				storage.push_back (amusic);
 			}
 			else if(strcmp(input, "movie") == 0) {
 				mainTitle = new char[100];
 				mainDirector = new char[100];
-				cout << "Enter year, title, director, duration, and rating separated by spaces" << endl;
-				cin >> mainYear >> mainTitle >> mainDirector >> mainDuration >> mainRating;
+				cout << "Enter year" << endl;
+				cin >> mainYear;
+				cout << "Enter title" << endl;
+				cin.ignore();
+				cin.getline(mainTitle, 100);
+				cout << "Enter director" << endl;
+				cin >> mainDirector;
+				cout << "Emter duration" << endl;
+				cin >> mainDuration;
+				cout << "Enter rating" << endl;
+				cin >> mainRating;
 				movie* amovie = new movie(mainYear, mainTitle, mainDirector, mainDuration, mainRating);
 				storage.push_back (amovie);
 			}
 		}
 		else if(strcmp(input, "SEARCH") == 0 || strcmp(input, "DELETE") == 0) {
 		//search for or delete a media either by title or by year
-			bool delete = false;
+			bool dodelete = false;
+			vector <int> todelete;
 			if(strcmp(input, "DELETE") == 0) {
-				delete = true;
+				dodelete = true;
 			}
 			cout << "By title or year?" << endl;
 			cin >> input;
+			bool searchtitle = false;
+			int inputyr;
 			if(strcmp(input, "title") == 0) {
+				searchtitle = true;
 				cout << "What is the title" << endl;
-				cin >> input;
-				for(int i = 0; i < storage.size(); i++){
-					if(strcmp(storage[i]->getTitle(), input) == 0){
-						if(storage[i]->getType() == 1){
-							game* agame = (game*)storage[i];
-							cout << "Game: " << agame->getYear() << ", " << input << ", " << agame->getPublisher() << ", " << agame->getRating() << endl;
-						}
-						else if(storage[i]->getType() == 2){
-							music* amusic = (music*)storage[i];
-							cout << "Music: " << amusic->getYear() << ", " << input << ", " << amusic->getArtist() << ", " << amusic->getDuration() << ", " << amusic->getPublisher() << endl;
-						}
-						else if(storage[i]->getType() == 3){
-							movie* amovie = (movie*)storage[i];
-							cout << "Movie: " << amovie->getYear() << ", " << input << ", " << amovie->getDirector() << ", " << amovie->getDuration() << ", " << amovie->getRating() << endl;
-						}
-					}
-				}
-				if(delete == true){
-					cout << "Are you sure you want to delete these?" << endl;
-				}
+				cin.ignore();
+				cin.getline(input, 100);
 			}
-			else if (strcmp(input, "year") == 0) {
+			else{	
 				cout << "What is the year" << endl;
-				int inputyr;
-				cin >> inputyr;
-				for(int i = 0; i < storage.size(); i++) {
-					if(storage[i]->getYear() == inputyr){
-						if(storage[i]->getType() == 1){
-							game* agame = (game*)storage[i];
-							cout << "Game: " << inputyr << ", " << agame->getTitle() << ", " << agame->getPublisher() << ", " << agame->getRating() << endl;
-						}
-						else if(storage[i]->getType() == 2){
-							music* amusic = (music*)storage[i];
-							cout << "Music: " << inputyr << ", " << amusic->getTitle() << ", " << amusic->getArtist() << ", " << amusic->getDuration() << ", " << amusic->getPublisher() << endl;
-						}
-						else if(storage[i]->getType() == 3){
-							movie* amovie = (movie*)storage[i];
-							cout << "Movie: " << inputyr << ", " << amovie->getTitle() << ", " << amovie->getDirector() << ", " << amovie->getDuration() << ", " << amovie->getRating() << endl;
-						}
+				cin >> inputyr;	
+			}
+			
+			for(int i = 0; i < storage.size(); i++){
+				if((searchtitle == true && strcmp(storage[i]->getTitle(), input) == 0) || (searchtitle == false && storage[i]->getYear() == inputyr)){
+					if(storage[i]->getType() == 1){
+						game* agame = (game*)storage[i];
+						cout << "Game: " << agame->getYear() << ", " << input << ", " << agame->getPublisher() << ", " << agame->getRating() << endl;
+					}
+					else if(storage[i]->getType() == 2){
+						music* amusic = (music*)storage[i];
+						cout << "Music: " << amusic->getYear() << ", " << input << ", " << amusic->getArtist() << ", " << amusic->getDuration() << ", " << amusic->getPublisher() << endl;
+					}
+					else if(storage[i]->getType() == 3){
+						movie* amovie = (movie*)storage[i];
+						cout << "Movie: " << amovie->getYear() << ", " << input << ", " << amovie->getDirector() << ", " << amovie->getDuration() << ", " << amovie->getRating() << endl;
+					}
+
+					if(dodelete == true){
+						todelete.push_back (i);
 					}
 				}
 			}
+
+			if(dodelete == true){
+				cout << "Are you sure you want to delete these? Enter yes or no" << endl;
+				cin >> input;
+				if (strcmp(input, "yes") == 0){
+					for(int k = todelete.size() - 1; k>=0; k--){
+						media* amedia = storage[k];
+						storage.erase (storage.begin() + k);
+						delete amedia;
+					}
+				}
+
+			}	
 		}
 	}
     	return 0;
-
 }

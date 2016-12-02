@@ -8,6 +8,10 @@ media::media(int mediaType, int mediaYear, char* mediaTitle){
 	title = mediaTitle;
 };
 
+media::~media(){
+	cout << title << " deleted" << endl;
+};
+
 int media::getType() {
     return type;
 };
