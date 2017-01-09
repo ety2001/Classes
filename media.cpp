@@ -1,5 +1,5 @@
 //media.cpp
-
+//implements the media class
 #include "media.h"
 
 media::media(int mediaType, int mediaYear, char* mediaTitle){
