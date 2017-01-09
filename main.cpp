@@ -1,5 +1,5 @@
 //main.cpp
-
+//has a vector containing the media class, can add search delete media
 #include <iostream>
 #include <vector>
 #include <string.h>
