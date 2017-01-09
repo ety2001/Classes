@@ -1,5 +1,5 @@
 //media.h
-
+//generic media class with type year and title
 #ifndef MEDIA_H
 #define MEDIA_H
 
