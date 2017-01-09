@@ -1,5 +1,5 @@
 //music.h
-
+//specific form of media class with artist duration publisher
 #include "media.h"
 
 class music: public media {
