@@ -1,5 +1,5 @@
 //music.cpp
-
+//implements the music class
 #include "music.h"
 
 music::music(int musicYear, char* musicTitle, char* musicArtist, int musicDuration, char* musicPublisher) : media(2, musicYear, musicTitle) {
