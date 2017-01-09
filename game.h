@@ -1,5 +1,5 @@
 //game.h
-
+//specific form of media class with publisher rating
 #include "media.h"
 
 class game: public media {
