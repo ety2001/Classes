@@ -1,5 +1,5 @@
 //movie.h
-
+//specific form of media class with director duration rating
 #include "media.h"
 
 class movie: public media {
